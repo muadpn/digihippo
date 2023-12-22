@@ -6,6 +6,12 @@ import { getPayloadClient } from "./get-payload";
 import { Product } from "./payload-types";
 import { Resend } from "resend";
 import { ReceiptEmailHtml } from "./components/emails/ReceiptEmail";
+import dotenv from "dotenv";
+import path from "path";
+dotenv.config({
+  path: path.resolve(__dirname, "../.env"),
+});
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 export const stripeWebhookHandler = async (
   req: express.Request,

@@ -10,6 +10,7 @@ import { getServerSideUser } from "@/lib/payload-utils";
 import { cookies } from "next/headers";
 import UserAccountNav from "./UserAccountNav";
 import { User } from "payload/dist/auth";
+import MobileNav from "./MobileNav";
 export const Navbar = async () => {
   const nextCookie = cookies();
   const { user } = await getServerSideUser(nextCookie);
@@ -21,7 +22,7 @@ export const Navbar = async () => {
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
               {/* TODO: Mobile Navbar */}
-
+              <MobileNav />
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
                   <Icons.logo className="h-10 w-10" />

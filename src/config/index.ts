@@ -1,22 +1,21 @@
-export const FEE = 1;
 export const PRODUCT_CATEGORIES = [
   {
-    label: "UI kits",
+    label: "UI Kits",
     value: "ui_kits" as const,
     featured: [
       {
-        name: "Editors Picks",
-        href: "#",
+        name: "Editor picks",
+        href: `/products?category=ui_kits`,
         ImageSrc: "/nav/ui-kits/mixed.jpg",
       },
       {
         name: "New Arrivals",
-        href: "#",
+        href: "/products?category=ui_kits&sort=desc",
         ImageSrc: "/nav/ui-kits/blue.jpg",
       },
       {
-        name: "Best Sellers",
-        href: "#",
+        name: "Bestsellers",
+        href: "/products?category=ui_kits",
         ImageSrc: "/nav/ui-kits/purple.jpg",
       },
     ],
@@ -26,19 +25,19 @@ export const PRODUCT_CATEGORIES = [
     value: "icons" as const,
     featured: [
       {
-        name: "Favorites Icon Pics",
-        href: "#",
+        name: "Favorite Icon Picks",
+        href: `/products?category=icons`,
         ImageSrc: "/nav/icons/picks.jpg",
       },
       {
         name: "New Arrivals",
-        href: "#",
+        href: "/products?category=icons&sort=desc",
         ImageSrc: "/nav/icons/new.jpg",
       },
       {
         name: "Bestselling Icons",
-        href: "#",
-        ImageSrc: "/nav/icons/bestsellers.jpg",
+        href: "/products?category=icons",
+        imageSrc: "/nav/icons/bestsellers.jpg",
       },
     ],
   },
