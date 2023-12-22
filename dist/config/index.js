@@ -1,25 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PRODUCT_CATEGORIES = exports.FEE = void 0;
-exports.FEE = 1;
+exports.FEE = exports.PRODUCT_CATEGORIES = void 0;
 exports.PRODUCT_CATEGORIES = [
     {
-        label: "UI kits",
+        label: "UI Kits",
         value: "ui_kits",
         featured: [
             {
-                name: "Editors Picks",
-                href: "#",
+                name: "Editor picks",
+                href: "/products?category=ui_kits",
                 ImageSrc: "/nav/ui-kits/mixed.jpg",
             },
             {
                 name: "New Arrivals",
-                href: "#",
+                href: "/products?category=ui_kits&sort=desc",
                 ImageSrc: "/nav/ui-kits/blue.jpg",
             },
             {
-                name: "Best Sellers",
-                href: "#",
+                name: "Bestsellers",
+                href: "/products?category=ui_kits",
                 ImageSrc: "/nav/ui-kits/purple.jpg",
             },
         ],
@@ -29,20 +28,21 @@ exports.PRODUCT_CATEGORIES = [
         value: "icons",
         featured: [
             {
-                name: "Favorites Icon Pics",
-                href: "#",
+                name: "Favorite Icon Picks",
+                href: "/products?category=icons",
                 ImageSrc: "/nav/icons/picks.jpg",
             },
             {
                 name: "New Arrivals",
-                href: "#",
+                href: "/products?category=icons&sort=desc",
                 ImageSrc: "/nav/icons/new.jpg",
             },
             {
                 name: "Bestselling Icons",
-                href: "#",
+                href: "/products?category=icons",
                 ImageSrc: "/nav/icons/bestsellers.jpg",
             },
         ],
     },
 ];
+exports.FEE = 1;

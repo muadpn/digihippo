@@ -35,12 +35,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stripeWebhookHandler = void 0;
 var stripe_1 = require("./lib/stripe");
 var get_payload_1 = require("./get-payload");
 var resend_1 = require("resend");
 var ReceiptEmail_1 = require("./components/emails/ReceiptEmail");
+var dotenv_1 = __importDefault(require("dotenv"));
+var path_1 = __importDefault(require("path"));
+dotenv_1.default.config({
+    path: path_1.default.resolve(__dirname, "../.env"),
+});
 var resend = new resend_1.Resend(process.env.RESEND_API_KEY);
 var stripeWebhookHandler = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var webhookRequest, body, signature, event, session, payload, users, user, orders, order, data, error_1;

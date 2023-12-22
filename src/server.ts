@@ -50,8 +50,7 @@ const start = async () => {
     return nextApp.render(req, res, "/cart", parsedUrl.query);
   });
 
-  app.use('/cart', CartRouter)
-
+  app.use("/cart", CartRouter);
 
   if (process.env.NEXT_BUILD) {
     app.listen(PORT, async () => {

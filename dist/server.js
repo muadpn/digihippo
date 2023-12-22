@@ -72,6 +72,7 @@ var body_parser_1 = __importDefault(require("body-parser"));
 var webhook_1 = require("./webhook");
 var build_1 = __importDefault(require("next/dist/build"));
 var path_1 = __importDefault(require("path"));
+var url_1 = require("url");
 var app = (0, express_1.default)();
 var PORT = Number(process.env.PORT) || 3000;
 var createContext = function (_a) {
@@ -82,7 +83,7 @@ var createContext = function (_a) {
     });
 };
 var start = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var webhookMiddleWare, payload;
+    var webhookMiddleWare, payload, CartRouter;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -105,6 +106,16 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
             case 1:
                 payload = _a.sent();
                 app.post("/api/webhooks/stripe", webhookMiddleWare, webhook_1.stripeWebhookHandler);
+                CartRouter = express_1.default.Router();
+                CartRouter.use(payload.authenticate);
+                CartRouter.get("/", function (req, res) {
+                    var request = req;
+                    if (!request.user)
+                        return res.redirect("/sign-in?origin=cart");
+                    var parsedUrl = (0, url_1.parse)(req.url, true);
+                    return next_utils_1.nextApp.render(req, res, "/cart", parsedUrl.query);
+                });
+                app.use("/cart", CartRouter);
                 if (process.env.NEXT_BUILD) {
                     app.listen(PORT, function () { return __awaiter(void 0, void 0, void 0, function () {
                         return __generator(this, function (_a) {
